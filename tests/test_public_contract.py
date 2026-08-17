@@ -499,6 +499,18 @@ class PublicPackageContractTests(unittest.TestCase):
                 with self.subTest(path=path, phrase=phrase):
                     self.assertIn(phrase, text)
 
+    def test_qr_code_uses_compact_display_width_across_languages(self) -> None:
+        for path in README_FILES:
+            text = read(path)
+            with self.subTest(path=path):
+                self.assertEqual(1, text.count('src="./media/wechat-qr.jpg"'))
+                self.assertEqual(1, text.count('width="240"'))
+        if (ROOT / ".preview" / "README.html").is_file():
+            preview = read(".preview/README.html")
+            self.assertIn('src="../media/wechat-qr.jpg"', preview)
+            self.assertIn('width="240"', preview)
+            self.assertNotIn('&lt;img src="./media/wechat-qr.jpg"', preview)
+
     def test_public_text_has_no_private_runtime_leakage(self) -> None:
         public_files = [
             *README_FILES,

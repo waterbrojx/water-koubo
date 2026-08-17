@@ -101,7 +101,7 @@ npx -y skills add waterbrojx/water-koubo -g --all
 
 **老肖AI运营｜微信：Waterbro_jx**
 
-![老肖AI运营微信二維碼](./media/wechat-qr.jpg)
+<img src="./media/wechat-qr.jpg" alt="老肖AI运营微信二維碼" width="240">
 
 商業授權或合作請備註 **Skill**。
 

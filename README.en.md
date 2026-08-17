@@ -101,7 +101,7 @@ For installation help, usage feedback, commercial licensing, or collaboration, a
 
 **老肖AI运营｜WeChat: Waterbro_jx**
 
-![老肖AI运营 WeChat QR code](./media/wechat-qr.jpg)
+<img src="./media/wechat-qr.jpg" alt="老肖AI运营 WeChat QR code" width="240">
 
 For commercial licensing or collaboration, include **Skill** in your note.
 
