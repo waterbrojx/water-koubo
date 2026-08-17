@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="920" viewBox="0 0 1280 920" role="img" aria-labelledby="title desc">
+  <title id="title">water-koubo 方法流程</title>
+  <desc id="desc">从一篇完整参考稿，到标题、封面文字和可拍正文的六步流程。</desc>
+  <rect width="1280" height="920" rx="28" fill="#f7f7f7"/>
+  <rect x="42" y="42" width="1196" height="836" rx="24" fill="#ffffff" stroke="#e4e4e4" stroke-width="2"/>
+
+  <text x="96" y="112" fill="#111111" font-family="Arial, Microsoft YaHei, PingFang SC, sans-serif" font-size="38" font-weight="800">water-koubo 怎样工作</text>
+  <text x="96" y="154" fill="#666666" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="22">一篇参考稿，完成六步处理，直接交付可拍结果</text>
+  <rect x="96" y="180" width="1088" height="6" rx="3" fill="#e11d2e"/>
+
+  <path d="M158 256V752" stroke="#e11d2e" stroke-width="6" stroke-linecap="round"/>
+
+  <g font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+    <g transform="translate(96 222)">
+      <circle cx="62" cy="52" r="36" fill="#e11d2e"/>
+      <text x="62" y="61" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="25" font-weight="800">01</text>
+      <rect x="126" y="0" width="930" height="104" rx="18" fill="#f8f8f8" stroke="#e2e2e2" stroke-width="2"/>
+      <text x="168" y="62" fill="#111111" font-size="30" font-weight="800">一篇完整参考稿</text>
+    </g>
+
+    <g transform="translate(96 340)">
+      <circle cx="62" cy="52" r="36" fill="#e11d2e"/>
+      <text x="62" y="61" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="25" font-weight="800">02</text>
+      <rect x="126" y="0" width="930" height="104" rx="18" fill="#f8f8f8" stroke="#e2e2e2" stroke-width="2"/>
+      <text x="168" y="62" fill="#111111" font-size="30" font-weight="800">看懂这篇稿为什么成立</text>
+    </g>
+
+    <g transform="translate(96 458)">
+      <circle cx="62" cy="52" r="36" fill="#e11d2e"/>
+      <text x="62" y="61" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="25" font-weight="800">03</text>
+      <rect x="126" y="0" width="930" height="104" rx="18" fill="#f8f8f8" stroke="#e2e2e2" stroke-width="2"/>
+      <text x="168" y="62" fill="#111111" font-size="30" font-weight="800">保住有效结构、案例和爆点</text>
+    </g>
+
+    <g transform="translate(96 576)">
+      <circle cx="62" cy="52" r="36" fill="#e11d2e"/>
+      <text x="62" y="61" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="25" font-weight="800">04</text>
+      <rect x="126" y="0" width="930" height="104" rx="18" fill="#f8f8f8" stroke="#e2e2e2" stroke-width="2"/>
+      <text x="168" y="62" fill="#111111" font-size="30" font-weight="800">重新写判断、句子和细节</text>
+    </g>
+
+    <g transform="translate(96 694)">
+      <circle cx="62" cy="52" r="36" fill="#e11d2e"/>
+      <text x="62" y="61" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="25" font-weight="800">05</text>
+      <rect x="126" y="0" width="930" height="104" rx="18" fill="#f8f8f8" stroke="#e2e2e2" stroke-width="2"/>
+      <text x="168" y="62" fill="#111111" font-size="30" font-weight="800">校准事实与经历归属</text>
+    </g>
+
+    <g transform="translate(96 812)">
+      <circle cx="62" cy="0" r="36" fill="#111111"/>
+      <text x="62" y="9" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="25" font-weight="800">06</text>
+      <rect x="126" y="-52" width="930" height="104" rx="18" fill="#111111"/>
+      <text x="168" y="10" fill="#ffffff" font-size="30" font-weight="800">标题＋封面文字＋可拍正文</text>
+    </g>
+  </g>
+</svg>

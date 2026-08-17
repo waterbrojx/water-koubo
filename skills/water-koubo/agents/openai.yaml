@@ -1,0 +1,6 @@
+interface:
+  display_name: "water-koubo"
+  short_description: "给一篇完整参考稿，直接得到一篇简体中文可拍口播稿"
+  default_prompt: "使用 $water-koubo 把我附上的完整参考稿二创成一篇可拍口播稿。"
+policy:
+  allow_implicit_invocation: true
