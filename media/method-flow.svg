@@ -1,56 +1,75 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="920" viewBox="0 0 1280 920" role="img" aria-labelledby="title desc">
-  <title id="title">water-koubo 方法流程</title>
-  <desc id="desc">从一篇完整参考稿，到标题、封面文字和可拍正文的六步流程。</desc>
-  <rect width="1280" height="920" rx="28" fill="#f7f7f7"/>
-  <rect x="42" y="42" width="1196" height="836" rx="24" fill="#ffffff" stroke="#e4e4e4" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">water-koubo 演示流程图</title>
+  <desc id="desc">一篇完整参考稿经过找出爆款写法、重新创作和核对归属，得到标题、封面文字和口播正文。</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#1f2328" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#e11d2e"/>
+    </marker>
+  </defs>
 
-  <text x="96" y="112" fill="#111111" font-family="Arial, Microsoft YaHei, PingFang SC, sans-serif" font-size="38" font-weight="800">water-koubo 怎样工作</text>
-  <text x="96" y="154" fill="#666666" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="22">一篇参考稿，完成六步处理，直接交付可拍结果</text>
-  <rect x="96" y="180" width="1088" height="6" rx="3" fill="#e11d2e"/>
+  <rect width="1600" height="900" fill="#f6f8fb"/>
+  <rect x="0" y="0" width="18" height="900" fill="#e11d2e"/>
 
-  <path d="M158 256V752" stroke="#e11d2e" stroke-width="6" stroke-linecap="round"/>
+  <rect x="88" y="72" width="270" height="46" rx="23" fill="#fff0f1"/>
+  <circle cx="116" cy="95" r="7" fill="#e11d2e"/>
+  <text x="136" y="103" fill="#e11d2e" font-family="Arial, Microsoft YaHei, PingFang SC, sans-serif" font-size="21" font-weight="700" letter-spacing="1">WATER-KOUBO · 五步成稿</text>
 
-  <g font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
-    <g transform="translate(96 222)">
-      <circle cx="62" cy="52" r="36" fill="#e11d2e"/>
-      <text x="62" y="61" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="25" font-weight="800">01</text>
-      <rect x="126" y="0" width="930" height="104" rx="18" fill="#f8f8f8" stroke="#e2e2e2" stroke-width="2"/>
-      <text x="168" y="62" fill="#111111" font-size="30" font-weight="800">一篇完整参考稿</text>
-    </g>
+  <text x="88" y="192" fill="#111827" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="54" font-weight="800">给一篇爆款参考稿，直接二创成可拍口播稿</text>
+  <text x="88" y="244" fill="#64748b" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="25">整个过程只需要一篇完整参考稿。</text>
 
-    <g transform="translate(96 340)">
-      <circle cx="62" cy="52" r="36" fill="#e11d2e"/>
-      <text x="62" y="61" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="25" font-weight="800">02</text>
-      <rect x="126" y="0" width="930" height="104" rx="18" fill="#f8f8f8" stroke="#e2e2e2" stroke-width="2"/>
-      <text x="168" y="62" fill="#111111" font-size="30" font-weight="800">看懂这篇稿为什么成立</text>
-    </g>
-
-    <g transform="translate(96 458)">
-      <circle cx="62" cy="52" r="36" fill="#e11d2e"/>
-      <text x="62" y="61" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="25" font-weight="800">03</text>
-      <rect x="126" y="0" width="930" height="104" rx="18" fill="#f8f8f8" stroke="#e2e2e2" stroke-width="2"/>
-      <text x="168" y="62" fill="#111111" font-size="30" font-weight="800">保住有效结构、案例和爆点</text>
-    </g>
-
-    <g transform="translate(96 576)">
-      <circle cx="62" cy="52" r="36" fill="#e11d2e"/>
-      <text x="62" y="61" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="25" font-weight="800">04</text>
-      <rect x="126" y="0" width="930" height="104" rx="18" fill="#f8f8f8" stroke="#e2e2e2" stroke-width="2"/>
-      <text x="168" y="62" fill="#111111" font-size="30" font-weight="800">重新写判断、句子和细节</text>
-    </g>
-
-    <g transform="translate(96 694)">
-      <circle cx="62" cy="52" r="36" fill="#e11d2e"/>
-      <text x="62" y="61" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="25" font-weight="800">05</text>
-      <rect x="126" y="0" width="930" height="104" rx="18" fill="#f8f8f8" stroke="#e2e2e2" stroke-width="2"/>
-      <text x="168" y="62" fill="#111111" font-size="30" font-weight="800">校准事实与经历归属</text>
-    </g>
-
-    <g transform="translate(96 812)">
-      <circle cx="62" cy="0" r="36" fill="#111111"/>
-      <text x="62" y="9" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="25" font-weight="800">06</text>
-      <rect x="126" y="-52" width="930" height="104" rx="18" fill="#111111"/>
-      <text x="168" y="10" fill="#ffffff" font-size="30" font-weight="800">标题＋封面文字＋可拍正文</text>
-    </g>
+  <g filter="url(#shadow)">
+    <rect x="88" y="338" width="248" height="268" rx="24" fill="#ffffff" stroke="#d8dee8" stroke-width="2"/>
+    <rect x="376" y="338" width="248" height="268" rx="24" fill="#ffffff" stroke="#d8dee8" stroke-width="2"/>
+    <rect x="664" y="338" width="248" height="268" rx="24" fill="#e11d2e"/>
+    <rect x="952" y="338" width="248" height="268" rx="24" fill="#ffffff" stroke="#d8dee8" stroke-width="2"/>
+    <rect x="1240" y="338" width="248" height="268" rx="24" fill="#ffffff" stroke="#d8dee8" stroke-width="2"/>
   </g>
+
+  <g fill="none" stroke="#e11d2e" stroke-width="5" marker-end="url(#arrow)">
+    <path d="M336 472 H365"/>
+    <path d="M624 472 H653"/>
+    <path d="M912 472 H941"/>
+    <path d="M1200 472 H1229"/>
+  </g>
+
+  <g font-family="Arial, Microsoft YaHei, PingFang SC, sans-serif" font-size="18" font-weight="700" letter-spacing="1">
+    <text x="116" y="385" fill="#e11d2e">01 · INPUT</text>
+    <text x="404" y="385" fill="#e11d2e">02 · FIND</text>
+    <text x="692" y="385" fill="#ffffff">03 · REMIX</text>
+    <text x="980" y="385" fill="#e11d2e">04 · CHECK</text>
+    <text x="1268" y="385" fill="#e11d2e">05 · OUTPUT</text>
+  </g>
+
+  <g font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="800">
+    <text x="116" y="446" fill="#111827">一篇完整参考稿</text>
+    <text x="404" y="446" fill="#111827">找出爆款写法</text>
+    <text x="692" y="446" fill="#ffffff">重新创作</text>
+    <text x="980" y="446" fill="#111827">核对归属</text>
+    <text x="1268" y="446" fill="#111827">完整成稿</text>
+  </g>
+
+  <g font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" fill="#64748b">
+    <text x="116" y="502">粘贴文字</text>
+    <text x="116" y="536">或附上文件</text>
+
+    <text x="404" y="502">观点 · 结构</text>
+    <text x="404" y="536">案例 · 爆点</text>
+
+    <text x="692" y="502" fill="#ffffff">开头 · 判断</text>
+    <text x="692" y="536" fill="#ffffff">句子 · 细节</text>
+
+    <text x="980" y="502">事实 · 案例</text>
+    <text x="980" y="536">经历分别属于谁</text>
+
+    <text x="1268" y="502">标题＋封面文字</text>
+    <text x="1268" y="536">＋口播正文</text>
+  </g>
+
+  <rect x="88" y="700" width="1400" height="112" rx="22" fill="#e9edf4"/>
+  <circle cx="130" cy="756" r="12" fill="#e11d2e"/>
+  <text x="166" y="765" fill="#334155" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700">一篇完整参考稿  →  标题＋封面文字＋可拍口播正文</text>
+  <text x="1320" y="765" fill="#e11d2e" font-family="Arial, sans-serif" font-size="20" font-weight="700">water-koubo</text>
 </svg>

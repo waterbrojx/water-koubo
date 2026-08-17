@@ -11,7 +11,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SKILL_DIR = ROOT / "skills" / "water-koubo"
 QR_SHA256 = "C122BE4BBE5F93744B96FE8089DF1E257DE06593587B797E77787E322B6CD5A1"
-METHOD_FILE = "skills/water-koubo/references/method.md"
 README_FILES = ["README.md", "README.zh-TW.md", "README.en.md"]
 RULE_IDS = [f"M{i:02d}" for i in range(1, 11)] + [f"Q{i:02d}" for i in range(1, 7)]
 
@@ -74,19 +73,16 @@ class PublicPackageContractTests(unittest.TestCase):
             "media/banner-source.svg",
             "media/banner.png",
             "media/method-flow.svg",
+            "media/method-flow.png",
             "media/wechat-qr.jpg",
             "skills/water-koubo/SKILL.md",
             "skills/water-koubo/agents/openai.yaml",
-            METHOD_FILE,
             "dist/water-koubo-v1.0.0.zip",
         ]
         for relative_path in required:
             with self.subTest(path=relative_path):
                 self.assertTrue((ROOT / relative_path).is_file())
-        self.assertEqual(
-            ["method.md"],
-            sorted(path.name for path in (SKILL_DIR / "references").glob("*.md")),
-        )
+        self.assertEqual([], list((SKILL_DIR / "references").glob("*.md")))
         self.assertFalse((SKILL_DIR / "scripts" / "profile.mjs").exists())
 
     def test_public_name_is_water_koubo_everywhere(self) -> None:
@@ -111,7 +107,6 @@ class PublicPackageContractTests(unittest.TestCase):
             "media/banner-source.svg",
             "skills/water-koubo/SKILL.md",
             "skills/water-koubo/agents/openai.yaml",
-            METHOD_FILE,
         ]
         combined = "\n".join(read(path) for path in public_files)
         self.assertNotIn(OLD_PUBLIC_NAME, combined)
@@ -146,8 +141,8 @@ class PublicPackageContractTests(unittest.TestCase):
         self.assertIn("给一篇完整参考稿", metadata)
         self.assertIn("allow_implicit_invocation: true", metadata)
 
-    def test_single_chinese_method_file_has_complete_rule_contract(self) -> None:
-        text = read(METHOD_FILE)
+    def test_skill_inlines_the_complete_rule_contract(self) -> None:
+        text = read("skills/water-koubo/SKILL.md")
         ids = re.findall(r"^## \[(M\d{2}|Q\d{2})\]", text, re.MULTILINE)
         self.assertEqual(RULE_IDS, ids)
         self.assertNotIn(PERCENTAGE_GATE, text)
@@ -172,7 +167,6 @@ class PublicPackageContractTests(unittest.TestCase):
     def test_runtime_is_chinese_and_only_returns_three_fields(self) -> None:
         skill = read("skills/water-koubo/SKILL.md")
         required = [
-            "references/method.md",
             "正常成稿始终使用简体中文",
             "标题：",
             "封面文字：",
@@ -193,6 +187,8 @@ class PublicPackageContractTests(unittest.TestCase):
             "Cover Text:",
             "English output",
             "用户修改该文件",
+            "references/method.md",
+            "官方公开方法源",
         ]:
             with self.subTest(unsupported=unsupported):
                 self.assertNotIn(unsupported, skill)
@@ -206,7 +202,7 @@ class PublicPackageContractTests(unittest.TestCase):
 
     def test_personal_settings_feature_is_fully_absent(self) -> None:
         self.assertFalse((SKILL_DIR / "scripts" / "profile.mjs").exists())
-        public_files = [*README_FILES, "NOTICE", "skills/water-koubo/SKILL.md", METHOD_FILE]
+        public_files = [*README_FILES, "NOTICE", "skills/water-koubo/SKILL.md"]
         combined = "\n".join(read(path) for path in public_files)
         for phrase in [
             "记住你的设置",
@@ -228,9 +224,8 @@ class PublicPackageContractTests(unittest.TestCase):
                 "water-koubo 解决什么问题",
                 "快速开始",
                 "能力一览",
-                "安装",
                 "怎样工作",
-                "公开方法库",
+                "安装",
                 "完整使用说明",
                 "更新日志",
                 "作者与许可证",
@@ -239,9 +234,8 @@ class PublicPackageContractTests(unittest.TestCase):
                 "water-koubo 解決什麼問題",
                 "快速開始",
                 "能力一覽",
-                "安裝",
                 "怎樣運作",
-                "公開方法庫",
+                "安裝",
                 "完整使用說明",
                 "更新日誌",
                 "作者與授權條款",
@@ -250,9 +244,8 @@ class PublicPackageContractTests(unittest.TestCase):
                 "What water-koubo helps with",
                 "Quick start",
                 "Capabilities",
-                "Installation",
                 "How it works",
-                "Open method library",
+                "Installation",
                 "Full usage guide",
                 "Changelog",
                 "Author and license",
@@ -275,7 +268,7 @@ class PublicPackageContractTests(unittest.TestCase):
             "简体中文",
             "繁體中文",
             "English",
-            "面向中文口播内容创作者的 AI Skill",
+            "短视频爆款口播二创 Skill",
             "给一篇完整参考稿，直接得到标题、封面文字和一篇可拍口播稿",
             "version-1.0.0",
             "Agent-Skills",
@@ -287,7 +280,6 @@ class PublicPackageContractTests(unittest.TestCase):
             "快速开始",
             "能力一览",
             "怎样工作",
-            "公开方法库",
             "安装",
             "完整说明",
         ]
@@ -330,28 +322,28 @@ class PublicPackageContractTests(unittest.TestCase):
 
         capabilities = {
             "README.md": [
-                "核心判断保真",
-                "结构与顺序保真",
-                "开头重新创作",
-                "案例与归属校准",
-                "新判断与爆点推进",
-                "结尾与三项结果统一",
+                "爆款逻辑不丢",
+                "开头重新写",
+                "内容真正二创",
+                "案例归属准确",
+                "补出新的爆点",
+                "完整成稿一次给全",
             ],
             "README.zh-TW.md": [
-                "核心判斷保真",
-                "結構與順序保真",
-                "開頭重新創作",
-                "案例與歸屬校準",
-                "新判斷與爆點推進",
-                "結尾與三項結果統一",
+                "爆款邏輯不丟",
+                "開頭重新寫",
+                "內容真正二創",
+                "案例歸屬準確",
+                "補出新的爆點",
+                "完整成稿一次給全",
             ],
             "README.en.md": [
-                "Core judgment fidelity",
-                "Structure and sequence fidelity",
-                "A newly written opening",
-                "Case and attribution accuracy",
-                "New judgment and peak progression",
-                "One aligned title, cover text, and script",
+                "Keep the viral logic",
+                "Rewrite the opening",
+                "Create a real remix",
+                "Keep cases properly attributed",
+                "Add a new peak",
+                "Get the full script package",
             ],
         }
         for path, labels in capabilities.items():
@@ -367,61 +359,54 @@ class PublicPackageContractTests(unittest.TestCase):
         expected = {
             "README.md": [
                 "一篇完整参考稿",
-                "看懂这篇稿为什么成立",
-                "保住有效结构、案例和爆点",
-                "重新写判断、句子和细节",
-                "校准事实与经历归属",
-                "标题＋封面文字＋可拍正文",
+                "找出爆款写法",
+                "重新创作",
+                "核对归属",
+                "完整成稿",
             ],
             "README.zh-TW.md": [
                 "一篇完整參考稿",
-                "看懂這篇稿為什麼成立",
-                "保住有效結構、案例和爆點",
-                "重新寫判斷、句子和細節",
-                "校準事實與經歷歸屬",
-                "標題＋封面文字＋可拍正文",
+                "找出爆款寫法",
+                "重新創作",
+                "核對歸屬",
+                "完整成稿",
             ],
             "README.en.md": [
                 "One complete reference script",
-                "Understand why the script works",
-                "Keep the effective structure, cases, and peak",
-                "Rewrite judgments, sentences, and details",
-                "Correct fact and experience attribution",
-                "Title + cover text + shoot-ready script",
+                "Find the viral mechanics",
+                "Rewrite the script",
+                "Check attribution",
+                "Complete deliverables",
             ],
         }
         for path, steps in expected.items():
             text = read(path)
-            self.assertIn("media/method-flow.svg", text)
-            positions = [text.index(step) for step in steps]
+            self.assertIn("./media/method-flow.png", text)
+            self.assertNotIn("media/method-flow.svg", text)
+            heading = "## How it works" if path.endswith(".en.md") else "## 怎樣運作" if path.endswith("zh-TW.md") else "## 怎样工作"
+            section = text.split(heading, 1)[1]
+            next_heading = section.find("\n## ")
+            if next_heading >= 0:
+                section = section[:next_heading]
+            positions = [section.index(step) for step in steps]
             self.assertEqual(sorted(positions), positions, path)
 
-    def test_official_method_is_view_download_and_fork_only(self) -> None:
-        required = {
-            "README.md": ["查看", "下载", "Fork", "官方版本由老肖AI运营维护"],
-            "README.zh-TW.md": ["查看", "下載", "Fork", "官方版本由老肖AI运营維護"],
-            "README.en.md": ["view", "download", "Fork", "official version is maintained by 老肖AI运营"],
-        }
+    def test_public_method_library_is_fully_absent(self) -> None:
+        self.assertFalse((SKILL_DIR / "references" / "method.md").exists())
         forbidden = [
+            "公开方法库",
+            "公開方法庫",
+            "Open method library",
             "公开知识库",
             "公開知識庫",
             "Public knowledge base",
-            "直接修改文件",
-            "直接修改檔案",
-            "Edits affect future",
-            "Issues",
-            "/issues",
+            "skills/water-koubo/references/method.md",
         ]
-        for path, phrases in required.items():
+        for path in README_FILES:
             text = read(path)
-            for phrase in phrases:
-                with self.subTest(path=path, phrase=phrase):
-                    self.assertIn(phrase, text)
             for phrase in forbidden:
                 with self.subTest(path=path, forbidden=phrase):
                     self.assertNotIn(phrase, text)
-            self.assertIn("Waterbro_jx", text)
-            self.assertIn("Skill", text)
 
     def test_readmes_keep_actual_use_to_one_command_and_one_reference(self) -> None:
         examples = {
@@ -433,20 +418,21 @@ class PublicPackageContractTests(unittest.TestCase):
             with self.subTest(path=path):
                 self.assertIn(example, read(path))
 
-    def test_multilingual_scope_is_documentation_only(self) -> None:
-        expected = {
-            "README.md": "正常成稿使用简体中文",
-            "README.zh-TW.md": "正常成稿使用簡體中文",
-            "README.en.md": "Normal output is in Simplified Chinese",
-        }
+    def test_language_explanation_is_absent_from_the_frontstage(self) -> None:
         scope_files = [*README_FILES, "media/banner-source.svg"]
         if (ROOT / ".preview" / "render_readme_preview.py").is_file():
             scope_files.append(".preview/render_readme_preview.py")
         combined = "\n".join(read(path) for path in scope_files)
-        for path, phrase in expected.items():
-            with self.subTest(path=path):
-                self.assertIn(phrase, read(path))
         for unsupported in [
+            "### 语言",
+            "### 語言",
+            "### Language",
+            "项目介绍提供简体中文",
+            "專案介紹提供簡體中文",
+            "Project documentation is available",
+            "正常成稿使用简体中文",
+            "正常成稿使用簡體中文",
+            "Normal output is in Simplified Chinese",
             "三语成稿",
             "三種語言各有一份",
             "three output languages",
@@ -455,6 +441,22 @@ class PublicPackageContractTests(unittest.TestCase):
         ]:
             with self.subTest(unsupported=unsupported):
                 self.assertNotIn(unsupported, combined)
+
+    def test_removed_frontstage_copy_and_exact_commercial_line(self) -> None:
+        combined = "\n".join(read(path) for path in README_FILES)
+        for removed in [
+            "### 必要限制",
+            "### Necessary limitations",
+            "正常结果不附加过程说明、评分或发布建议。",
+            "正常結果不附加過程說明、評分或發佈建議。",
+            "Normal results contain no process notes, scores, or publishing advice.",
+            "提供简体中文、繁體中文和 English 三套项目介绍",
+        ]:
+            self.assertNotIn(removed, combined)
+        readme = read("README.md")
+        exact = "短视频获客、代运营、收费培训或收费产品等商业使用，需要老肖AI运营单独授权；"
+        self.assertIn(exact, readme)
+        self.assertNotIn("变现账号、企业营销、获客、代运营", readme)
 
     def test_frontstage_copy_has_no_backstage_terms_or_contrast_template(self) -> None:
         combined = "\n".join(read(path) for path in README_FILES)
@@ -508,7 +510,6 @@ class PublicPackageContractTests(unittest.TestCase):
             "media/banner-source.svg",
             "skills/water-koubo/SKILL.md",
             "skills/water-koubo/agents/openai.yaml",
-            METHOD_FILE,
         ]
         combined = "\n".join(read(path) for path in public_files)
         forbidden = [
@@ -536,6 +537,7 @@ class PublicPackageContractTests(unittest.TestCase):
         self.assertEqual(QR_SHA256, digest)
         self.assertEqual((720, 720), jpeg_size(qr))
         self.assertEqual((1280, 640), png_size(ROOT / "media" / "banner.png"))
+        self.assertEqual((1600, 900), png_size(ROOT / "media" / "method-flow.png"))
 
         source = read("media/banner-source.svg")
         for exact_text in [
@@ -550,11 +552,10 @@ class PublicPackageContractTests(unittest.TestCase):
         flow = read("media/method-flow.svg")
         for exact_text in [
             "一篇完整参考稿",
-            "看懂这篇稿为什么成立",
-            "保住有效结构、案例和爆点",
-            "重新写判断、句子和细节",
-            "校准事实与经历归属",
-            "标题＋封面文字＋可拍正文",
+            "找出爆款写法",
+            "重新创作",
+            "核对归属",
+            "完整成稿",
         ]:
             self.assertIn(exact_text, flow)
 
@@ -573,7 +574,6 @@ class PublicPackageContractTests(unittest.TestCase):
         expected = {
             "water-koubo/SKILL.md",
             "water-koubo/agents/openai.yaml",
-            "water-koubo/references/method.md",
         }
         with zipfile.ZipFile(archive) as package:
             files = {name for name in package.namelist() if not name.endswith("/")}
