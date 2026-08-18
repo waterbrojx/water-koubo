@@ -12,7 +12,7 @@
 
 water-koubo was created by 老肖AI运营. It packages a talking-head remix method drawn from 13 years of internet operations experience. The method has been used in real account production.
 
-[Quick start](#quick-start) · [Capabilities](#capabilities) · [How it works](#how-it-works) · [Installation](#installation) · [Full guide](#full-usage-guide)
+[Quick install](#quick-install) · [Capabilities](#capabilities) · [How it works](#how-it-works) · [Full guide](#full-usage-guide) · [Feedback](#feedback)
 
 ![water-koubo demo flow](./media/method-flow.png)
 
@@ -22,17 +22,36 @@ Give water-koubo one strong reference script. It keeps the original idea, struct
 
 It is built for creators who already have a complete reference script and want to turn it into content they can shoot.
 
-## Quick start
+## Quick install
 
-After installation, enter this in an Agent that supports Skills:
+Send this sentence to your Agent:
 
 ~~~text
-$water-koubo
-[Paste or attach one complete Chinese reference script]
-Remix it into a shoot-ready Chinese talking-head script.
+Install this Skill for me: https://github.com/waterbrojx/water-koubo
 ~~~
 
-When the reference is complete and readable, water-koubo delivers the finished script directly.
+The Agent will read the repository, find `water-koubo`, and install it. The installed display name is “爆款口播二创 Skill”.
+
+<details>
+<summary><strong>When your Agent cannot install directly</strong></summary>
+
+Run this command in a terminal:
+
+~~~bash
+npx -y skills add waterbrojx/water-koubo -g --all
+~~~
+
+You can also download the repository ZIP. For ZIP import, choose the **skills/water-koubo** directory.
+
+</details>
+
+Once installed, use:
+
+~~~text
+Use $water-koubo to turn this complete reference script into a shoot-ready Chinese talking-head script.
+~~~
+
+Current version: **1.0.0 / Unreleased**. The first public release date will be added before publication.
 
 ## Capabilities
 
@@ -57,18 +76,6 @@ water-koubo completes each remix in five steps:
 4. **Check attribution**: Confirm who owns each fact, case, and experience.
 5. **Complete deliverables**: Return the title, cover text, and talking-head script.
 
-## Installation
-
-Run this command in a terminal:
-
-~~~bash
-npx -y skills add waterbrojx/water-koubo -g --all
-~~~
-
-Return to an Agent that supports Skills, use **$water-koubo**, and provide one complete reference script. For ZIP import, choose the **skills/water-koubo** directory.
-
-Current version: **1.0.0 / Unreleased**. The first public release date will be added before publication.
-
 ## Full usage guide
 
 ### Input
@@ -86,8 +93,6 @@ Current version: **1.0.0 / Unreleased**. The first public release date will be a
 
 口播正文：
 ~~~
-
-For installation help, usage feedback, commercial licensing, or collaboration, add **Waterbro_jx** on WeChat and include **Skill** in your note.
 
 ## Changelog
 
@@ -114,3 +119,18 @@ This project uses [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/
 - The 老肖AI运营 brand, banner, WeChat QR code, and their combined presentation remain separately reserved.
 
 See [LICENSE](LICENSE) and [NOTICE](NOTICE) for details. Official project: [waterbrojx/water-koubo](https://github.com/waterbrojx/water-koubo).
+
+## Feedback
+
+If installation fails, rules conflict, or the output from an Agent or model looks wrong, [open an Issue](https://github.com/waterbrojx/water-koubo/issues/new).
+
+Please include:
+
+- the Agent or model you used;
+- your prompt;
+- an output excerpt;
+- your expected result.
+
+Remove personal and client information first.
+
+For commercial licensing or collaboration, add **Waterbro_jx** on WeChat and include **Skill** in your note.

@@ -222,33 +222,33 @@ class PublicPackageContractTests(unittest.TestCase):
         expected_headings = {
             "README.md": [
                 "water-koubo 解决什么问题",
-                "快速开始",
+                "快速安装",
                 "能力一览",
                 "怎样工作",
-                "安装",
                 "完整使用说明",
                 "更新日志",
                 "作者与许可证",
+                "反馈",
             ],
             "README.zh-TW.md": [
                 "water-koubo 解決什麼問題",
-                "快速開始",
+                "快速安裝",
                 "能力一覽",
                 "怎樣運作",
-                "安裝",
                 "完整使用說明",
                 "更新日誌",
                 "作者與授權條款",
+                "回饋",
             ],
             "README.en.md": [
                 "What water-koubo helps with",
-                "Quick start",
+                "Quick install",
                 "Capabilities",
                 "How it works",
-                "Installation",
                 "Full usage guide",
                 "Changelog",
                 "Author and license",
+                "Feedback",
             ],
         }
         for path, headings in expected_headings.items():
@@ -277,11 +277,11 @@ class PublicPackageContractTests(unittest.TestCase):
             "water-koubo 由老肖AI运营创建",
             "13 年互联网运营",
             "真实账号的口播内容生产",
-            "快速开始",
+            "快速安装",
             "能力一览",
             "怎样工作",
-            "安装",
             "完整说明",
+            "反馈",
         ]
         positions = [first_section.index(phrase) for phrase in ordered]
         self.assertEqual(sorted(positions), positions)
@@ -410,13 +410,98 @@ class PublicPackageContractTests(unittest.TestCase):
 
     def test_readmes_keep_actual_use_to_one_command_and_one_reference(self) -> None:
         examples = {
-            "README.md": "$water-koubo\n【粘贴或附上一篇完整参考稿】\n帮我二创成一篇可拍口播稿。",
-            "README.zh-TW.md": "$water-koubo\n【貼上或附上一份完整中文參考稿】\n幫我二創成一篇可拍的中文口播稿。",
-            "README.en.md": "$water-koubo\n[Paste or attach one complete Chinese reference script]\nRemix it into a shoot-ready Chinese talking-head script.",
+            "README.md": "使用 $water-koubo，把这篇完整参考稿二创成一篇可拍口播稿。",
+            "README.zh-TW.md": "使用 $water-koubo，把這篇完整參考稿二創成一篇可拍的中文口播稿。",
+            "README.en.md": "Use $water-koubo to turn this complete reference script into a shoot-ready Chinese talking-head script.",
         }
         for path, example in examples.items():
             with self.subTest(path=path):
                 self.assertIn(example, read(path))
+
+    def test_readmes_offer_agent_first_installation(self) -> None:
+        expected = {
+            "README.md": {
+                "heading": "## 快速安装",
+                "old_headings": ["## 快速开始", "## 安装"],
+                "instruction": "帮我安装这个 Skill：https://github.com/waterbrojx/water-koubo",
+                "fallback": "Agent 不支持直接安装时",
+                "zip": "ZIP 导入",
+            },
+            "README.zh-TW.md": {
+                "heading": "## 快速安裝",
+                "old_headings": ["## 快速開始", "## 安裝"],
+                "instruction": "幫我安裝這個 Skill：https://github.com/waterbrojx/water-koubo",
+                "fallback": "Agent 不支援直接安裝時",
+                "zip": "ZIP 匯入",
+            },
+            "README.en.md": {
+                "heading": "## Quick install",
+                "old_headings": ["## Quick start", "## Installation"],
+                "instruction": "Install this Skill for me: https://github.com/waterbrojx/water-koubo",
+                "fallback": "When your Agent cannot install directly",
+                "zip": "ZIP import",
+            },
+        }
+        command = "npx -y skills add waterbrojx/water-koubo -g --all"
+        for path, contract in expected.items():
+            text = read(path)
+            with self.subTest(path=path):
+                self.assertEqual(1, text.count(contract["heading"]))
+                for old_heading in contract["old_headings"]:
+                    self.assertNotIn(old_heading, text)
+                self.assertEqual(1, text.count(contract["instruction"]))
+                self.assertIn("<details>", text)
+                self.assertIn("</details>", text)
+                self.assertIn(contract["fallback"], text)
+                self.assertIn(command, text)
+                self.assertIn(contract["zip"], text)
+
+    def test_readmes_offer_issue_feedback(self) -> None:
+        expected = {
+            "README.md": [
+                "## 反馈",
+                "安装失败",
+                "规则冲突",
+                "Agent／模型",
+                "指令",
+                "输出片段",
+                "期望结果",
+                "个人和客户信息",
+            ],
+            "README.zh-TW.md": [
+                "## 回饋",
+                "安裝失敗",
+                "規則衝突",
+                "Agent／模型",
+                "指令",
+                "輸出片段",
+                "期望結果",
+                "個人和客戶資訊",
+            ],
+            "README.en.md": [
+                "## Feedback",
+                "installation fails",
+                "rules conflict",
+                "Agent or model",
+                "prompt",
+                "output excerpt",
+                "expected result",
+                "personal and client information",
+            ],
+        }
+        issue_url = "https://github.com/waterbrojx/water-koubo/issues/new"
+        for path, phrases in expected.items():
+            text = read(path)
+            with self.subTest(path=path):
+                self.assertIn(f"]({issue_url})", text)
+                for phrase in phrases:
+                    self.assertIn(phrase, text)
+                self.assertIn("Waterbro_jx", text)
+                self.assertIn("Skill", text)
+
+        combined = "\n".join(read(path) for path in README_FILES)
+        self.assertNotIn("安装问题、使用反馈、商业授权或合作，请添加微信", combined)
+        self.assertNotIn("安裝問題、使用回饋、商業授權或合作，請加入微信", combined)
 
     def test_language_explanation_is_absent_from_the_frontstage(self) -> None:
         scope_files = [*README_FILES, "media/banner-source.svg"]

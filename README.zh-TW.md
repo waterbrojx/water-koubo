@@ -12,7 +12,7 @@
 
 water-koubo 由老肖AI运营建立。老肖把 13 年網路營運經驗裡一直在用的口播二創方法，整理成了這個 Skill。這套方法已經用於真實帳號的口播內容生產。
 
-[快速開始](#快速開始) · [能力一覽](#能力一覽) · [怎樣運作](#怎樣運作) · [安裝](#安裝) · [完整說明](#完整使用說明)
+[快速安裝](#快速安裝) · [能力一覽](#能力一覽) · [怎樣運作](#怎樣運作) · [完整說明](#完整使用說明) · [回饋](#回饋)
 
 ![water-koubo 演示流程圖](./media/method-flow.png)
 
@@ -22,17 +22,36 @@ water-koubo 由老肖AI运营建立。老肖把 13 年網路營運經驗裡一�
 
 適合手上已經有完整參考稿，想快速二創成自己能拍內容的創作者。
 
-## 快速開始
+## 快速安裝
 
-安裝完成後，在支援 Skills 的 Agent 中輸入：
+把下面這句話傳給你的 Agent：
 
 ~~~text
-$water-koubo
-【貼上或附上一份完整中文參考稿】
-幫我二創成一篇可拍的中文口播稿。
+幫我安裝這個 Skill：https://github.com/waterbrojx/water-koubo
 ~~~
 
-參考稿完整可讀時，water-koubo 會直接交付成稿。
+Agent 會讀取倉庫，找到 `water-koubo` 並完成安裝。安裝後顯示為「爆款口播二創 Skill」。
+
+<details>
+<summary><strong>Agent 不支援直接安裝時</strong></summary>
+
+在終端執行：
+
+~~~bash
+npx -y skills add waterbrojx/water-koubo -g --all
+~~~
+
+也可以下載倉庫 ZIP。ZIP 匯入時選擇 **skills/water-koubo** 目錄。
+
+</details>
+
+裝好後這樣用：
+
+~~~text
+使用 $water-koubo，把這篇完整參考稿二創成一篇可拍的中文口播稿。
+~~~
+
+目前版本：**1.0.0 / Unreleased**。首次公開日期會在正式發佈前寫入。
 
 ## 能力一覽
 
@@ -57,18 +76,6 @@ water-koubo 會按五步完成一篇二創稿：
 4. **核對歸屬**：檢查事實、案例和經歷分別屬於誰。
 5. **完整成稿**：交付標題、封面文字和口播正文。
 
-## 安裝
-
-在終端執行：
-
-~~~bash
-npx -y skills add waterbrojx/water-koubo -g --all
-~~~
-
-安裝後回到支援 Skills 的 Agent，使用 **$water-koubo** 加一篇完整參考稿即可開始。ZIP 匯入時選擇 **skills/water-koubo** 目錄。
-
-目前版本：**1.0.0 / Unreleased**。首次公開日期會在正式發佈前寫入。
-
 ## 完整使用說明
 
 ### 輸入
@@ -86,8 +93,6 @@ npx -y skills add waterbrojx/water-koubo -g --all
 
 口播正文：
 ~~~
-
-安裝問題、使用回饋、商業授權或合作，請加入微信 **Waterbro_jx**，備註 **Skill**。
 
 ## 更新日誌
 
@@ -114,3 +119,18 @@ npx -y skills add waterbrojx/water-koubo -g --all
 - 「老肖AI运营」品牌、橫幅、微信二維碼及其組合版式另行保留權利。
 
 詳細條款見 [LICENSE](LICENSE) 與 [NOTICE](NOTICE)。官方專案地址：[waterbrojx/water-koubo](https://github.com/waterbrojx/water-koubo)。
+
+## 回饋
+
+安裝失敗、規則衝突，或某個 Agent／模型的結果不對，歡迎[提交 Issue](https://github.com/waterbrojx/water-koubo/issues/new)。
+
+提交時請附上：
+
+- 使用的 Agent／模型；
+- 你的指令；
+- 輸出片段；
+- 期望結果。
+
+個人和客戶資訊請先隱去。
+
+商業授權或合作，請加入微信 **Waterbro_jx**，備註 **Skill**。
