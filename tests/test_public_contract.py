@@ -648,13 +648,32 @@ class PublicPackageContractTests(unittest.TestCase):
 
         flow = read("media/method-flow.svg")
         for exact_text in [
-            "一篇完整参考稿",
-            "找出爆款写法",
-            "重新创作",
-            "核对归属",
-            "完整成稿",
+            "WATER-KOUBO · 爆款口播二创",
+            "给一篇爆款文案，直接二创出稿",
+            "爆款文案",
+            "保留爆款结构",
+            "100%原创改写",
+            "口语化成稿",
+            "一次出全",
+            "粘贴文字／附上文件",
+            "观点、顺序、节奏、爆点",
+            "判断、句子、爆点、细节",
+            "顺口好读、拿起来就能拍",
+            "标题、封面文字、口播正文",
+            "不限行业，所有口播创作者都能用",
         ]:
             self.assertIn(exact_text, flow)
+        for removed_text in [
+            "整个过程只需要一篇完整参考稿",
+            "13年营销经验",
+            "13 年营销经验",
+            "01 · INPUT",
+            "02 · FIND",
+            "03 · REMIX",
+            "04 · CHECK",
+            "05 · OUTPUT",
+        ]:
+            self.assertNotIn(removed_text, flow)
 
     def test_all_readme_local_links_exist(self) -> None:
         for readme_path in README_FILES:
