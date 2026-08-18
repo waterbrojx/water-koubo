@@ -675,6 +675,25 @@ class PublicPackageContractTests(unittest.TestCase):
         ]:
             self.assertNotIn(removed_text, flow)
 
+    def test_method_flow_keeps_remix_details_on_two_lines(self) -> None:
+        flow = read("media/method-flow.svg")
+        self.assertIn(
+            '<text x="404" y="502" aria-label="观点、顺序、节奏、爆点">\n'
+            '      <tspan x="404" dy="0">观点、顺序</tspan>\n'
+            '      <tspan x="404" dy="34">节奏、爆点</tspan>\n'
+            '    </text>',
+            flow,
+        )
+        self.assertIn(
+            '<text x="692" y="502" fill="#ffffff" aria-label="判断、句子、爆点、细节">\n'
+            '      <tspan x="692" dy="0">判断、句子</tspan>\n'
+            '      <tspan x="692" dy="34">爆点、细节</tspan>\n'
+            '    </text>',
+            flow,
+        )
+        self.assertNotIn(">观点、顺序、节奏、爆点</text>", flow)
+        self.assertNotIn(">判断、句子、爆点、细节</text>", flow)
+
     def test_all_readme_local_links_exist(self) -> None:
         for readme_path in README_FILES:
             links = re.findall(r"!?\[[^\]]*\]\(([^)]+)\)", read(readme_path))

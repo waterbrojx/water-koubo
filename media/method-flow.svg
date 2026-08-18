@@ -53,9 +53,15 @@
   <g font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="19" fill="#64748b">
     <text x="116" y="502">粘贴文字／附上文件</text>
 
-    <text x="404" y="502">观点、顺序、节奏、爆点</text>
+    <text x="404" y="502" aria-label="观点、顺序、节奏、爆点">
+      <tspan x="404" dy="0">观点、顺序</tspan>
+      <tspan x="404" dy="34">节奏、爆点</tspan>
+    </text>
 
-    <text x="692" y="502" fill="#ffffff">判断、句子、爆点、细节</text>
+    <text x="692" y="502" fill="#ffffff" aria-label="判断、句子、爆点、细节">
+      <tspan x="692" dy="0">判断、句子</tspan>
+      <tspan x="692" dy="34">爆点、细节</tspan>
+    </text>
 
     <text x="980" y="502" aria-label="顺口好读、拿起来就能拍">
       <tspan x="980" dy="0">顺口好读、</tspan>
