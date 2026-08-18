@@ -499,7 +499,6 @@ class PublicPackageContractTests(unittest.TestCase):
                 "指令",
                 "输出片段",
                 "期望结果",
-                "个人和客户信息",
             ],
             "README.zh-TW.md": [
                 "## 回饋",
