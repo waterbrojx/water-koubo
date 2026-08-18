@@ -260,6 +260,39 @@ class PublicPackageContractTests(unittest.TestCase):
                 positions.append(text.index(marker))
             self.assertEqual(sorted(positions), positions, path)
 
+    def test_v1_release_date_is_public_and_no_longer_unreleased(self) -> None:
+        release_date = "2026-08-18"
+        expected = {
+            "README.md": [
+                "当前版本：**1.0.0**。首次公开日期：**2026-08-18**。",
+                "### 1.0.0 · 2026-08-18",
+            ],
+            "README.zh-TW.md": [
+                "目前版本：**1.0.0**。首次公開日期：**2026-08-18**。",
+                "### 1.0.0 · 2026-08-18",
+            ],
+            "README.en.md": [
+                "Current version: **1.0.0**. First public release: **2026-08-18**.",
+                "### 1.0.0 · 2026-08-18",
+            ],
+            "NOTICE": [
+                "状态：Released",
+                "首次公开日期：2026-08-18",
+            ],
+            "VERSION": [
+                "Status: Released",
+                "Release-Date: 2026-08-18",
+            ],
+        }
+        for path, phrases in expected.items():
+            text = read(path)
+            with self.subTest(path=path):
+                self.assertIn(release_date, text)
+                self.assertNotIn("Unreleased", text)
+                self.assertNotIn("发布前写入", text)
+                for phrase in phrases:
+                    self.assertIn(phrase, text)
+
     def test_readme_first_screen_matches_the_locked_product_story(self) -> None:
         readme = read("README.md")
         first_section = readme.split("## water-koubo 解决什么问题", 1)[0]

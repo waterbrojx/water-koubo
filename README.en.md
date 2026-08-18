@@ -51,7 +51,7 @@ Once installed, use:
 Use $water-koubo to turn this complete reference script into a shoot-ready Chinese talking-head script.
 ~~~
 
-Current version: **1.0.0 / Unreleased**. The first public release date will be added before publication.
+Current version: **1.0.0**. First public release: **2026-08-18**.
 
 ## Capabilities
 
@@ -96,7 +96,7 @@ water-koubo completes each remix in five steps:
 
 ## Changelog
 
-### 1.0.0 · Unreleased
+### 1.0.0 · 2026-08-18
 
 - First release of water-koubo;
 - Turns one complete reference script into a title, cover text, and shoot-ready talking-head script;
